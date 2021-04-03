@@ -1,20 +1,13 @@
 package guru.springframework.msscjacksonexamples.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 
 import java.io.IOException;
 
 @JsonTest
 class BeerDtoTest extends BaseTest {
-
-
-    @Autowired
-    ObjectMapper objectMapper;
-
 
     @Test
     void testSerializedDto() throws JsonProcessingException {
@@ -34,7 +27,6 @@ class BeerDtoTest extends BaseTest {
 
         System.out.println(dto);
 
-        System.out.println("Test in jackson");
     }
 
 
