@@ -34,7 +34,6 @@ class BeerDtoTest extends BaseTest {
 
         System.out.println(dto);
 
-        System.out.println("Test in jackson");
     }
 
 
