@@ -1,4 +1,4 @@
-package guru.springframework.msscbeerservice.service;
+package guru.springframework.msscbeerservice.service.brewing;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.springframework.msscbeerservice.config.JmsConfig;

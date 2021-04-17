@@ -10,8 +10,9 @@ import org.springframework.jms.support.converter.MessageConverter;
 public class JmsConfig {
 
   public static final String BREWING_REQUEST_QUEUE = "brewing-request";
+    public static final String NEW_INVENTORY_QUEUE = "new-inventory";
 
-  @Bean
+    @Bean
   public MessageConverter massageConvertor() {
     MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
     converter.setTargetType(MessageType.TEXT);
