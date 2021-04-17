@@ -1,9 +1,8 @@
 package guru.springframework.msscbeerservice.service.brewing;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.springframework.msscbeerservice.config.JmsConfig;
 import guru.springframework.msscbeerservice.domain.Beer;
-import guru.springframework.msscbeerservice.events.BrewBeerEvent;
+import sfg.common.events.BrewBeerEvent;
 import guru.springframework.msscbeerservice.repositories.BeerRepository;
 import guru.springframework.msscbeerservice.service.inventory.BeerInventoryService;
 import guru.springframework.msscbeerservice.web.mapper.BeerMapper;

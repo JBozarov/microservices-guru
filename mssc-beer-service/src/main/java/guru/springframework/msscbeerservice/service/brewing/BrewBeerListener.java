@@ -2,13 +2,11 @@ package guru.springframework.msscbeerservice.service.brewing;
 
 import guru.springframework.msscbeerservice.config.JmsConfig;
 import guru.springframework.msscbeerservice.domain.Beer;
-import guru.springframework.msscbeerservice.events.BrewBeerEvent;
-import guru.springframework.msscbeerservice.events.NewInventoryEvent;
+import sfg.common.events.BrewBeerEvent;
+import sfg.common.events.NewInventoryEvent;
 import guru.springframework.msscbeerservice.repositories.BeerRepository;
 import guru.springframework.msscbeerservice.web.model.BeerDto;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
@@ -18,7 +16,7 @@ import javax.transaction.Transactional;
 
 @Service
 @Slf4j
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class BrewBeerListener {
 
   private BeerRepository beerRepository;
