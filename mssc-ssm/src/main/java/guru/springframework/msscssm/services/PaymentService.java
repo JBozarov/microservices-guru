@@ -5,8 +5,6 @@ import guru.springframework.msscssm.domain.PaymentEvent;
 import guru.springframework.msscssm.domain.PaymentState;
 import org.springframework.statemachine.StateMachine;
 
-import java.awt.event.PaintEvent;
-
 
 public interface PaymentService {
 
