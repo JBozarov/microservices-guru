@@ -51,7 +51,16 @@ public class SMConfig extends StateMachineConfigurerAdapter<OrderStates, OrderEv
                 .source(OrderStates.SUBMITTED).target(OrderStates.PAID).event(OrderEvents.PAY)
                 .and()
                 .withExternal()
-                .source(OrderStates.PAID).target(OrderStates.FULFILLED).event(OrderEvents.FULFILL);
+                .source(OrderStates.PAID).target(OrderStates.FULFILLED).event(OrderEvents.FULFILL)
+                .and()
+                .withExternal()
+                .source(OrderStates.SUBMITTED).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL)
+                .and()
+                .withExternal()
+                .source(OrderStates.PAID).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL)
+                .and()
+                .withExternal()
+                .source(OrderStates.FULFILLED).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL);
 
     }
 }
