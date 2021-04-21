@@ -26,7 +26,7 @@ public class SMConfig extends StateMachineConfigurerAdapter<OrderStates, OrderEv
           @Override
           public void stateChanged(
               State<OrderStates, OrderEvents> from, State<OrderStates, OrderEvents> to) {
-            log.debug(" from: " + from.toString() + " and to: " + to.toString());
+              //log.debug(" from: " + from.toString() + " and to: " + to.toString());
           }
         };
 
