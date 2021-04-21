@@ -40,27 +40,20 @@ public class SMConfig extends StateMachineConfigurerAdapter<OrderStates, OrderEv
         .withStates()
         .initial(OrderStates.SUBMITTED)
         .state(OrderStates.PAID)
-        .end(OrderStates.CANCELLED)
-        .end(OrderStates.FULFILLED);
+        .end(OrderStates.FULFILLED)
+        .end(OrderStates.CANCELLED);
   }
 
     @Override
     public void configure(StateMachineTransitionConfigurer<OrderStates, OrderEvents> transitions) throws Exception {
         transitions
-                .withExternal()
-                .source(OrderStates.SUBMITTED).target(OrderStates.PAID).event(OrderEvents.PAY)
+                .withExternal().source(OrderStates.SUBMITTED).target(OrderStates.PAID).event(OrderEvents.PAY)
                 .and()
-                .withExternal()
-                .source(OrderStates.PAID).target(OrderStates.FULFILLED).event(OrderEvents.FULFILL)
+                .withExternal().source(OrderStates.PAID).target(OrderStates.FULFILLED).event(OrderEvents.FULFILL)
                 .and()
-                .withExternal()
-                .source(OrderStates.SUBMITTED).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL)
+                .withExternal().source(OrderStates.SUBMITTED).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL)
                 .and()
-                .withExternal()
-                .source(OrderStates.PAID).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL)
-                .and()
-                .withExternal()
-                .source(OrderStates.FULFILLED).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL);
+                .withExternal().source(OrderStates.PAID).target(OrderStates.CANCELLED).event(OrderEvents.CANCEL);
 
     }
 }

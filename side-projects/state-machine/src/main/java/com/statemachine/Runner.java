@@ -3,6 +3,8 @@ package com.statemachine;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.stereotype.Component;
@@ -25,10 +27,19 @@ public class Runner implements ApplicationRunner {
     log.info("First log " + machine.getState().getId().name());
 
     machine.sendEvent(OrderEvents.PAY);
-    log.info("Second line " + machine.getState().getId().name());
+    log.info("Second line after pay " + machine.getState().getId().name());
 
     machine.sendEvent(OrderEvents.CANCEL);
-    log.info("Third line " + machine.getState().getId().name());
+    log.info("Third line after cancel " + machine.getState().getId().name());
+
+    Message<OrderEvents> eventsMassage = MessageBuilder
+            .withPayload(OrderEvents.FULFILL)
+            .setHeader("a", "b")
+            .build();
+
+    machine.sendEvent(eventsMassage);
+
+    log.info("Forth line after fulfill " + machine.getState().getId().name());
 
   }
 }
